@@ -26,7 +26,6 @@ public class TXTReader {
 	
 	public boolean hasDataLeft() {
 		try {
-			//if we can read the next line return true
 			if ((nextLine = br.readLine()) != null) {
 				return true;
 			} else {

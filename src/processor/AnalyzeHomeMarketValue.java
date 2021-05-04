@@ -25,7 +25,7 @@ public class AnalyzeHomeMarketValue implements AnalyzeHomeInterface{
 		int numHomesInZip = 0;
     	//in every zip code go through every house
     	for(Home h : homeData) {
-    		//if the house we're on match the zip code we're in add to the total market value
+    		//if the current house matches the current zip code, add to the total market value
     		//and increase number of homes
     		if (h.getZipCode().equals(zipCode)) {
     			totalMarketValue += Integer.valueOf(h.getMarketValue());
@@ -35,7 +35,6 @@ public class AnalyzeHomeMarketValue implements AnalyzeHomeInterface{
     	}
     	
     	int avg;
-    	//at this point we have the total market value and num homes FOR THIS ZIP
     	if (numHomesInZip == 0) {
     		avg = 0;
     	} else {

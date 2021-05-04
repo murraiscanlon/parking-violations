@@ -33,7 +33,6 @@ public class CSVReader {
 	
 	public boolean hasDataLeft() {
 		try {
-			//if we can read the next line return true
 			if ((nextLine = br.readLine()) != null) {
 				return true;
 			} else {
@@ -84,7 +83,7 @@ public class CSVReader {
 	            	 zipCode = null;
 	             }
 
-	             //TODO not sure if this should happen here or when we print
+	             //TODO not sure if this should happen here or when to print
 	             if (state.equals("PA") && zipCode != null) {
 	            	 Ticket ticket = new Ticket(ticketNumber,state,date,zipCode,vehicleID,descr, fineDollars);
 	            	 ticketData.add(ticket);

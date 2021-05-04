@@ -13,7 +13,7 @@ import datamanagement.*;
 public class Main {
 
 	/**
-	 * 
+	 *
 	 * runtime args: programName formatParking (csv or json) nameOfParkingFile nameOfPropertyFile nameOfPopFile nameOfLogFile
 	 * @param
 	 *
@@ -59,7 +59,7 @@ public class Main {
      	AnalyzeHomeMarketValue mv = new AnalyzeHomeMarketValue();
      
     	
-    	//command line argument for txt or json
+    	//display welcome message and get ready for user input
     	Scanner scanner = new Scanner(System.in);
     	System.out.println("-----------------------------");
     	System.out.println("- Welcome to OpenPhillyData -");
@@ -76,8 +76,9 @@ public class Main {
     		System.out.println("\t6. Calculate the ratio of parking violations to avg marget value for each zip code");
     		System.out.println("\t0. EXIT \n");
 			System.out.print("Enter the number of your selection here:");
-    	
-    		int userInput;
+
+			//get command line argument for txt or json spec
+			int userInput;
     		userInput = scanner.nextInt();	
     		//userInput = 4;
     		Logger.getInstance().write( System.currentTimeMillis() + " " + userInput + "\n");
@@ -131,7 +132,7 @@ public class Main {
 		
     		
     		for(Population p : popData) {
-    			//get theavg market value for this zip if we need to or
+    			//get the avg market value for this zip or
     			//just reference a previous calculation if it has already been done
     			int avgMarketValue;
 			   if (mv.hasInformation(p.getZipCode())) {				  
@@ -164,7 +165,7 @@ public class Main {
     
    public static void option5(ArrayList<Home> homeData, ArrayList<Population> popData, String zipCode ) {
     	
-    	//find the population of the zipcode we're on
+    	//find the population of the zipcode indicated
 	   int pop = 0;;
 	   for(Population p : popData) {
 		   if (p.getZipCode().equals(zipCode)) {
@@ -210,7 +211,7 @@ public class Main {
     
     //option 3
     /*user enters a zipcode
-     * we need the properties data
+     * need the properties data
      * Avg market value  toatl market value for all homes in the zip / number of homes
      * 
      */
